@@ -1,0 +1,26 @@
+.mat-cell{
+  font-size: 12px;
+}
+
+.mat-header-cell{
+  font-weight: bold;
+}
+
+.mat-header-cell:first-child, .mat-cell:first-child{
+  border-bottom-style: none;
+}
+
+.mat-cell:nth-child(2){
+  color: rgb(248, 29, 29);
+}
+
+.mat-cell:nth-child(5), .mat-cell:nth-child(3), .mat-cell:nth-child(4){
+  color: rgb(180, 182, 180);
+}
+
+.mat-cell input{
+  border: none;
+  padding: 10px;
+  background: rgb(243, 243, 243);
+  font-weight: bold;
+}

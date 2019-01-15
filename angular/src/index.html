@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MEANTraining</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Unlock" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+</head>
+
+<body>
+
+  <app-root></app-root>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- <script>
+    $(function () {
+      $(".draggable").draggable();
+      $(".droppable, .droppable-1").droppable({
+        // drop: function (event, ui) {
+        //   $(this)
+        //     .addClass("ui-state-highlight")
+        //     .find("p")
+        //     .html("Dropped!");
+        // },
+        over: function (event, ui) {
+          $(this).css('background', 'rgb(191, 191, 194)');
+        },
+        // out: function (event, ui) {
+        //   $(this).css('background', 'cyan');
+        // }
+      });
+    });
+  </script> -->
+  <!-- // <script>
+  //   $(document).ready(function () {
+  //     addElements();
+  //     // there's the gallery and the trash
+  //     var $gallery = $("#list1"),
+  //       $trash = $("#list2");
+
+  //     // let the gallery items be draggable
+  //     $("li", $gallery).draggable({
+  //       cancel: "button", // these elements won't initiate dragging
+  //       revert: "invalid", // when not dropped, the item will revert back to its initial position
+  //       containment: "document",
+  //       helper: "clone",
+  //       cursor: "move"
+  //     });
+
+  //     // let the trash be droppable, accepting the gallery items
+  //     $trash.droppable({
+  //       accept: "#list1 > li",
+  //       drop: function (event, ui) {
+  //         $("#list2").append('<h1>Image</h1> <p>Drop image here</p>');
+  //         addElements();
+  //       }
+  //     });
+  //   });
+
+  //   function addElements() {
+  //     $("#list1").empty().append(
+  //       "<li id='item1' class='list1Items'>Item 1</li>" +
+  //       "<li id='item2' class='list1Items'>Item 2</li>" +
+  //       "<li id='item3' class='list1Items'>Item 3</li>");
+  //     $("#list1 > li").draggable({
+  //       cancel: "button", // these elements won't initiate dragging
+  //       revert: "invalid", // when not dropped, the item will revert back to its initial position
+  //       containment: "document",
+  //       helper: "clone",
+  //       cursor: "move"
+  //     });
+
+  //     $("#list2").droppable({
+  //       accept: "#list1 > li",
+  //       drop: function (event, ui) {
+  //         $("#list2").append('<h1>Image</h1> <p>Drop image here</p>');
+  //         addElements();
+  //       }
+  //     });
+  //   }
+  // <script> -->
+  <script>
+    $(document).ready(function () {
+      addContents();
+    });
+
+    function addContents() {
+      // $(".flex-container").empty().append(
+      //   "<div><p>Text</p></div>" +
+      //   "<div><p>Image</p></div>" +
+      //   "<div><p>Heading</p></div>");
+      $(".flex-container > div").draggable({
+        cancel: "button", // these elements won't initiate dragging
+        revert: "invalid", // when not dropped, the item will revert back to its initial position
+        containment: "document",
+        helper: "clone",
+        cursor: "move",
+      });
+
+      $(".droppable-image").droppable({
+        accept: ".flex-container > div",
+        drop: function (event, ui) {
+          $(".droppable-image").append('<h3>Image</h3> <p>Drop image here</p>').find('h3').css({ 'font-size': '30px', 'font-weight': 'bold' });
+          addContents();
+        }
+      });
+
+      $(".droppable-text").droppable({
+        accept: ".flex-container > div",
+        drop: function (event, ui) {
+          $(".droppable-text").append('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. Id donec ultrices tincidunt arcu non. Sit amet luctus venenatis lectus magna. Pellentesque sit amet porttitor eget dolor morbi non arcu. Viverra vitae congue eu consequat.');
+          addContents();
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

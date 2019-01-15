@@ -1,0 +1,16 @@
+<header class="flex-header">
+  <div class="left-header">
+    <span>{{accounts.length}}</span> MY ACCOUNTS
+  </div>
+  <div class="center-header">
+    <i class="fa fa-trash"></i>
+  </div>
+  <div class="right-header">
+    <div class="account-name">
+      {{userDetails.fullName.split(' ').slice().join(' ')}}
+    </div>
+    <div class="account-role">
+      {{userDetails.roles.join(', ')}}
+    </div>
+  </div>
+</header>

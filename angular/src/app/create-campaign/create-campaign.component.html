@@ -1,0 +1,45 @@
+<i class="fa fa-times fa-3x pull-right" (click)="onClose()"></i>
+<br/>
+<div>
+  <div class="header">
+    Create New Campaign
+    <p>Create a new campaign and place it in a campaign folder</p>
+  </div>
+
+  <div class="container content">
+    Choose a campaign channel you want to start with
+    <p>You can add channels to this folder later on</p>
+    <div class="flex-container">
+      <div class="flex" (click)="onClickEmail()" [ngClass]="!clickEmail ? '' : 'change-color-channel'">
+        <i class="fas fa-envelope-open-text fa-3x"></i>
+        <p class="default-channel">
+          <i [ngClass]="!clickEmail ? 'fas fa-plus-circle' : 'fas fa-check-circle change-color-channel'"></i>
+          <label [ngClass]="!clickEmail ? '' : 'change-color-channel'"> EMAIL</label>
+        </p>
+      </div>
+      <div class="flex" (click)="onClickSms()" [ngClass]="!clickSms ? '' : 'change-color-channel'">
+        <i class="fas fa-mobile-alt fa-3x"></i>
+        <p class="default-channel">
+          <i [ngClass]="!clickSms ? 'fas fa-plus-circle' : 'fas fa-check-circle change-color-channel'"></i>
+          <label [ngClass]="!clickSms ? '' : 'change-color-channel'"> SMS</label>
+        </p>
+      </div>
+    </div>
+    <i class="far fa-folder-open"></i>
+    <span> Save it to your campaign folder</span>
+    <p>Campaign folder's store multiple campaigns that share a common theme and performance indicators.</p>
+    <div>
+      <div class="folder" (click)="onClickNew()">
+        <i [ngClass]="!clickNew ? 'fas fa-plus-circle default' : 'fas fa-check-circle change-color'"></i>
+        <span [ngClass]="!clickNew ? 'default' : 'change-color'">CREATE A NEW CAMPAIGN FOLDER</span>
+      </div>
+      <div class="folder" (click)="onClickExist()">
+        <i class="exist" [ngClass]="!clickExist ? 'fas fa-plus-circle default' : 'fas fa-check-circle change-color'"></i>
+        <span [ngClass]="!clickExist ? 'default' : 'change-color'">ADD TO EXISTING FOLDER</span>
+      </div>
+      <input class="form-control">
+    </div>
+  </div>
+</div>
+
+<button mat-button [mat-dialog-close] class="submit" routerLink="users/campaigns/create-campaign/setup">LETS BEGIN</button>

@@ -1,0 +1,67 @@
+<mat-form-field *ngIf="searchControlInput===true" class="filter">
+  <input matInput [formControl]="emailFilter" placeholder="Email" disabled>
+</mat-form-field>
+
+<mat-form-field *ngIf="searchControlInput===true" class="filter">
+  <input matInput [formControl]="mobileFilter" placeholder="Mobile">
+</mat-form-field>
+
+<mat-form-field *ngIf="searchControlInput===true" class="filter">
+  <input matInput [formControl]="firstNameFilter" placeholder="First Name">
+</mat-form-field>
+
+<mat-form-field *ngIf="searchControlInput===true" class="filter">
+  <input matInput [formControl]="lastNameFilter" placeholder="Sure Name">
+</mat-form-field>
+
+<div class="container">
+  <mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>
+        EMAIL
+
+      </th>
+      <td mat-cell *matCellDef="let contact">
+        {{contact.email}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef>
+        MOBILE
+
+      </th>
+      <mat-cell *matCellDef="let contact"> {{contact.mobile}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef>
+        FIRST NAME
+
+      </th>
+      <mat-cell *matCellDef="let contact"> {{contact.firstName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="surename">
+      <th mat-header-cell *matHeaderCellDef>
+        SURENAME
+
+      </th>
+      <mat-cell *matCellDef="let contact"> {{contact.lastName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="more">
+      <th mat-header-cell *matHeaderCellDef>
+        MORE
+      </th>
+      <mat-cell *matCellDef="let contact">
+        <button (click)="onEditContact(contact._id)">EDIT</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+</div>

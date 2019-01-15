@@ -1,0 +1,59 @@
+.container{
+  position: relative;
+}
+
+.login{
+  height:100%;
+}
+
+.head{
+  font-family: 'Merriweather', serif;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.title{
+  font-family: 'Unlock', cursive;
+  font-size: 40px;
+}
+
+div .form-group .form-control{
+  width: 400px;
+  height: 65px;
+  margin: auto;
+}
+
+div .form-group div:first-child{
+  margin-top: 30px;
+}
+
+div .form-group #submit{
+  font-size: 18px;
+  margin: auto;
+  background-color: rgb(4, 218, 164);
+  color: white;
+  border-radius: 5px;
+}
+
+div .form-group div:nth-child(4) .btn{
+  font-size: 16px;
+  margin: 20px 0px 0px 200px;
+  color: rgb(158, 150, 150);
+}
+
+.contact{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 300px;
+}
+
+.ml {
+  margin-left: 20px;
+}
+
+label.validation-message{
+  color:#835d5e;
+}

@@ -1,0 +1,43 @@
+<div class="container text-center login">
+  <div class="head">
+    sprout
+  </div>
+  <div class="title">
+    Ready to sign in?
+  </div>
+  <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit(loginForm)" class="form-group text-center">
+    <div>
+      <input class="form-control" type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
+      [ngClass]="{'invalid-textbox' :loginForm.submitted && !email.valid }"/>
+    </div>
+    <div *ngIf="loginForm.submitted && email.errors?.pattern">
+      <label class="validation-message">Invalid email address.</label>
+    </div>
+    <div>
+      <input class="form-control" type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required
+      [ngClass]="{'invalid-textbox' :loginForm.submitted && !password.valid }">
+    </div>
+    <div *ngIf="loginForm.submitted">
+    </div>
+    <div>
+      <input type="submit" id="submit" value="SIGN IN" class="form-control" />
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>
+    </div>
+    <div>
+      <a [routerLink]="" class="btn btn-link">Forgot password?</a>
+    </div>
+  </form>
+  <div class="contact">
+    <div>
+      <a [routerLink]="" class="btn btn-link">https://support.contacta.io</a>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <span> 03 9999 2585</span>
+      <i class="fa fa-envelope ml"></i>
+      <span> support@contacta.io</span>
+    </div>
+  </div>
+</div>

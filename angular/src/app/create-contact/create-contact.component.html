@@ -1,0 +1,43 @@
+<div class="form-create">
+  <div>
+    <h1>Create a new contact</h1>
+    <h3>Complete the form below to add a new contact to your list</h3>
+  </div>
+  <form [formGroup]='createForm' (ngSubmit)="submit(createForm)">
+    <div>
+      <label>First name</label>
+      <input class="form-control" formControlName="firstName" #firstName>
+    </div>
+
+    <div>
+      <label>Surename</label>
+      <input class="form-control" formControlName="sureName" #sureName>
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input class="form-control" formControlName="email" #email>
+    </div>
+
+    <div>
+      <label>Mobile</label>
+      <input class="form-control" formControlName="mobile" #mobile>
+    </div>
+
+    <label>Date of birth*</label>
+    <div>
+      <input bsDatepicker class="form-control" value="Select date" ng-required="true" placeholder="MM/DD/YYYY" formControlName="birthday"
+        #birthday>
+    </div>
+
+    <div>
+      <label>Gender</label>
+      <br/>
+      <input type="radio" value="male" formControlName="gender" #gender><h5>Male</h5>
+      <input type="radio" value="female" formControlName="gender" #gender><h5>Female</h5>
+    </div>
+
+    <input class="btn btn-default button" type="submit" routerLink="../" value="CANCEL">
+    <input class="btn btn-success button" type="submit" value="ADD CONTACT">
+  </form>
+</div>

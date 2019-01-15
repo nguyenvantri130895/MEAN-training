@@ -1,0 +1,92 @@
+
+
+div div h1{
+  font-size: 50px;
+  font-weight: bold;
+}
+
+div div h3{
+  font-size: 28px;
+  color: rgb(151, 151, 151);
+}
+
+form{
+  text-align: left;
+  margin-top: 50px;
+}
+
+.form-create{
+  width: 600px;
+  margin: auto;
+}
+
+// .form-create form .form-group div form-control{
+//   margin-left: 0;
+// }
+
+.form-control{
+  height: 50px;
+}
+
+label{
+  padding-top: 30px;
+}
+
+.form-create form select{
+  -webkit-appearance: none;
+  background-image: url(../../images/angledown.png);
+  background-repeat: no-repeat;
+  background-position: 570px;
+  background-size: 20px;
+  color: black;
+}
+
+.form-create form select:hover{
+  background-image: url(../../images/images.jpg);
+}
+
+.form-create form select:invalid{
+  color: rgb(172, 169, 169);
+}
+
+.form-create form select option{
+  color: black;
+}
+
+.form-create form select option:first-child{
+  color: rgb(172, 169, 169);
+}
+
+div form .font-pricing{
+  font-size: 28px;
+}
+
+.form-create form .unlimited{
+  position: relative;
+}
+
+.form-create form .unlimited > input{
+  width: 72%;
+  display: inline-block;
+}
+
+.form-create form .unlimited div{
+  display: inline;
+}
+
+.form-create form .unlimited div span{
+  margin-left: 50px;
+}
+
+.form-create form .unlimited div input{
+  zoom: 1.8;
+  margin-left: 10px;
+  position: absolute;
+  bottom: 8px;
+}
+
+.btn{
+  margin: 50px 40% 0;
+  width: 20%;
+  height: 40px;
+}

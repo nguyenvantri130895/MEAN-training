@@ -1,0 +1,15 @@
+<div class="background">
+  <div class="container">
+    <div class="title">
+      Contacts
+      <span routerLink="./create-contact">+</span>
+    </div>
+    <div class="search-control">
+      <button class="btn btn-danger" type="button" (click)="onSearch()">
+        <i class="fa fa-search"></i>
+         SEARCH YOUR CONTACTS
+      </button>
+    </div>
+  </div>
+</div>
+<app-contact [contacts]='contacts' [searchControl]='searchControl'></app-contact>

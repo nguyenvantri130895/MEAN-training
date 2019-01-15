@@ -1,0 +1,55 @@
+<div>
+  <app-header></app-header>
+  <main>
+    <div class="head-manage-account">
+      <div class="font-color">
+        <button class="btn btn-link">
+          ACCOUNTS
+        </button>
+        <button class="btn btn-link" routerLink="/users">
+          USERS
+        </button>
+        <button class="btn btn-link">
+          CONTACTS
+        </button>
+        <button class="btn btn-link">
+          CAMPAIGNS
+        </button>
+        <div id="manage-account">
+          Manage accounts
+          <span (click)="onCreateAccount()">+</span>
+        </div>
+        <div class="flex-statistic">
+          <div>
+            <div class="statistic-count">
+              {{accounts.length}}
+            </div>
+            <div class="statistic-label">
+              TOTAL ACCOUNTS
+            </div>
+          </div>
+          <div>
+            <div class="statistic-count">
+              {{accounts.length}}
+            </div>
+            <div class="statistic-label">
+              ACTIVE ACCOUNTS
+            </div>
+          </div>
+          <div>
+            <div class="statistic-count">
+              $ {{accounts.length * 12345.67}}
+            </div>
+            <div class="statistic-label">
+              MONTHLY SUBSCRIPTIONS
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-account [accounts]="accounts"></app-account>
+    <div>
+      <input type="button" (click)="onLogout()" value="Logout">
+    </div>
+  </main>
+</div>

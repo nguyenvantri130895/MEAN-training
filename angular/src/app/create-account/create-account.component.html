@@ -1,0 +1,93 @@
+<div class="form-create">
+  <div>
+    <h1>Account details</h1>
+    <h3>Create a new account</h3>
+  </div>
+  <form [formGroup]='createForm'>
+    <div>
+      <label>Account name *</label>
+      <div>Give the account a name that is easily recognisable.</div>
+      <input class="form-control" formControlName="name" #name>
+    </div>
+
+    <div>
+      <label>Account Owner Email *</label>
+      <input class="form-control" formControlName="ownerEmail" #ownerEmail>
+    </div>
+
+    <div>
+      <label>Country *</label>
+      <br/>
+      <select class="form-control" required formControlName="country" #country>
+        <option disabled selected value> Select Country </option>
+        <option value="Usa">USA</option>
+        <option value="Japan">Japan</option>
+        <option value="France">France</option>
+        <option value="Australia">Australia</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Time Zone *</label>
+      <div>Select your local time zone, this will affect your campaign schedules.</div>
+      <br/>
+      <select class="form-control" required formControlName="timezone" #timezone>
+        <option disabled selected value> Choose Time Zone </option>
+        <option value="New York">New York</option>
+        <option value="Tokyo">Tokyo</option>
+        <option value="Paris">Paris</option>
+        <option value="Victoria">Victoria</option>
+      </select>
+    </div>
+
+    <!-- <label class="font-pricing">Set pricing</label>
+    <br/>
+
+    <div>
+      <label>Currency</label>
+      <br/>
+      <select class="form-control" name="currencies">
+        <option value="aud">AUD</option>
+        <option value="usd">USD</option>
+        <option value="yen">YEN</option>
+        <option value="euro">EURO</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Monthly subscription fee *</label>
+      <input class="form-control">
+    </div>
+
+    <div>
+      <label>Startup fee</label>
+      <input class="form-control">
+    </div>
+
+    <div class="unlimited">
+      <label>Email inclusion *</label>
+      <br/>
+      <input type="email" class="form-control">
+      <div>
+        <input type="checkbox"><span>Unlimited emails</span>
+      </div>
+    </div>
+
+    <div>
+      <label>SMS inclusion *</label>
+      <input class="form-control">
+    </div>
+
+    <div class="unlimited">
+      <label>Contact inclusion *</label>
+      <br/>
+      <input type="email" class="form-control">
+      <div>
+        <input type="checkbox"><span>Unlimited contacts</span>
+      </div>
+    </div> -->
+
+    <input class="btn btn-primary" type="submit" (click)="addAccount(name.value, ownerEmail.value, country.value, timezone.value)" value="Create Account">
+
+  </form>
+</div>

@@ -1,0 +1,40 @@
+.form-create{
+  margin: auto;
+  //height: 100%;
+}
+
+// .container{
+//   width: 60%;
+// }
+
+h1{
+  font-size: 50px;
+  font-weight: bold;
+}
+
+h3{
+  font-size: 20px;
+  color: rgb(151, 151, 151);
+}
+
+form{
+  width: 30%;
+  min-width: 500px;
+  text-align: left;
+  margin-top: 50px;
+  margin: auto;
+}
+
+.form-control{
+  height: 50px;
+}
+
+label{
+  padding-top: 30px;
+}
+
+.form-create form > input{
+  margin-top: 50px;
+  width: 20%;
+  height: 50px;
+}

@@ -1,0 +1,26 @@
+.body-manage-account{
+  //padding: 20px;
+  position: absolute;
+  width: 100%;
+  background-color: rgb(229, 231, 231);
+}
+
+// .body-manage-account .container{
+//   //width: 90%;
+// }
+
+.body-manage-account table{
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+th, td {
+  padding: 20px;
+  border-bottom: 1px solid rgb(207, 206, 206);
+}
+
+.fa-search{
+  font-size: 24px;
+}

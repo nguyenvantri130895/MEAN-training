@@ -1,0 +1,42 @@
+<div class="form-create">
+  <div>
+    <h1>Update contact</h1>
+  </div>
+  <form [formGroup]='createContactForm' (ngSubmit)="submit(createContactForm)">
+    <div>
+      <label>First name</label>
+      <input class="form-control" formControlName="firstName" #firstName>
+    </div>
+
+    <div>
+      <label>Surename</label>
+      <input class="form-control" formControlName="lastName" #lastName>
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input class="form-control" formControlName="email" #email>
+    </div>
+
+    <div>
+      <label>Mobile</label>
+      <input class="form-control" formControlName="mobile" #mobile>
+    </div>
+
+    <label>Date of birth*</label>
+    <div>
+      <input bsDatepicker class="form-control" value="Select date" ng-required="true" placeholder="MM/DD/YYYY" formControlName="birthday"
+        #birthday>
+    </div>
+
+    <div>
+      <label>Gender</label>
+      <br/>
+      <input type="radio" value="male" formControlName="gender" #gender><h5>Male</h5>
+      <input type="radio" value="female" formControlName="gender" #gender><h5>Female</h5>
+    </div>
+
+    <input class="btn btn-default button" routerLink='/users/contacts' value="CANCEL">
+    <input class="btn btn-success button" type="submit" value="UPDATE" [disabled]="createContactForm.pristine || createContactForm.invalid">
+  </form>
+</div>

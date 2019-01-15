@@ -1,0 +1,24 @@
+<div class="body-manage-account">
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <!-- <th><input type="checkbox"></th> -->
+          <td>ACCOUNT NAME</td>
+          <td>COUNTRY</td>
+          <td>TIMEZONE</td>
+          <!-- <td><input class="form-control"></td> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <!-- <td><input type="checkbox"></td> -->
+          <td>{{account.name}}</td>
+          <td>{{account.country}}</td>
+          <td>{{account.timezone}}</td>
+          <!-- <td></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

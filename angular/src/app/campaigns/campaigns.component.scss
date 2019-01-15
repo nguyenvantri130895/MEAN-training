@@ -1,0 +1,40 @@
+.background{
+  background-color: #222;
+}
+
+.container{
+  width: 60%;
+  position: relative;
+}
+
+.title{
+  margin: 25px;
+  font-size: 30px;
+  color: white;
+}
+
+.title span{
+  position: absolute;
+  padding: 5px;
+  margin-top: -5px;
+  right: 0;
+  border-radius: 100px;
+  width: 50px;
+  background-color: rgb(7, 206, 189);
+  cursor: pointer;
+}
+
+.title span:hover{
+  opacity: 0.3;
+}
+
+.input-group{
+  width: 50%;
+  background-color: #222;
+  border-color: white;
+  margin-bottom: 50px;
+}
+
+input, button{
+  height: 40px;
+}

@@ -1,0 +1,46 @@
+.background{
+  background-color: #222;
+}
+
+.container{
+  width: 50%;
+  position: relative;
+}
+
+.title{
+  margin: 25px;
+  font-size: 30px;
+  color: white;
+}
+
+.title span{
+  position: absolute;
+  padding: 5px;
+  margin-top: -5px;
+  right: 0;
+  border-radius: 100px;
+  width: 50px;
+  background-color: rgb(7, 206, 189);
+  cursor: pointer;
+}
+
+.title span:hover{
+  opacity: 0.3;
+}
+
+.search-control{
+  color: white;
+  font-size: 15px;
+  width: 100%;
+}
+
+div label:nth-child(2){
+  font-size: 11px;
+}
+
+.btn-danger{
+  color: white;
+  border: none;
+  height: 40px;
+  margin-bottom: 30px;
+}

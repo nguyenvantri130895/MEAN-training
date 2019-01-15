@@ -1,0 +1,110 @@
+.pull-right{
+  -webkit-text-stroke: 5px white;
+  cursor: pointer;
+  color: rgb(202, 6, 6);
+}
+
+div{
+  font-size: 18px;
+  background-color: white;
+}
+
+.header{
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.header p{
+  font-size: 20px;
+}
+
+p{
+  font-weight: normal;
+  color: rgb(146, 146, 145);
+}
+
+.container{
+  width: 70%;
+}
+
+.content{
+  font-weight: bold;
+  margin-top: 50px;
+  text-align: left;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex{
+  width: 47%;
+  height: 150px;
+  border: 2px solid rgb(187, 185, 185);
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+div i{
+  margin-top: 32px;
+}
+
+.default-channel{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.default-channel label{
+  margin-left: 3px;
+}
+
+.change-color-channel{
+  border-color: rgb(4, 184, 85);
+  color: rgb(4, 184, 85);
+}
+
+.content span{
+  font-weight: bold;
+}
+
+.folder{
+  cursor: pointer;
+  display: inline;
+}
+
+.content div span{
+  font-size: 14px;
+}
+
+.default{
+  color: rgb(148, 147, 147);
+}
+
+.exist{
+  margin-left: 30px;
+}
+
+.content div span{
+  margin-left: 10px;
+}
+
+.change-color{
+  color: rgb(5, 192, 176);
+}
+
+input{
+  margin-top: 20px;
+  height: 50px;
+}
+
+.submit{
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  padding: 22px 80px;
+  background-color: rgb(5, 192, 176);
+  border-radius: 7px;
+}

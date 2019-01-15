@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="view">
+    <button class="button" (click)="onClick('clickCampaign')" [ngClass]="click === 'clickCampaign' ? 'active' : '' "><i class="far fa-paper-plane"></i>
+      CAMPAIGN VIEW
+    </button>
+    <button class="button" (click)="onClick('clickFolder')" [ngClass]="click === 'clickFolder' ? 'active' : '' "><i class="far fa-folder-open"></i>
+      FOLDER VIEW
+    </button>
+  </div>
+  <table *ngIf="click === 'clickFolder' ">
+    <tr *ngFor="let campaign of campaigns">
+      <td>
+        <i class="far fa-folder fa-2x"></i>
+        {{campaign.name}} campaigns
+      </td>
+      <td>
+        {{campaign.statistics.emailsRecipients}}
+        <br/> RECIPIENTS
+      </td>
+      <td><button>ADD A CAMPAIGN</button></td>
+    </tr>
+  </table>
+  <table *ngIf="click === 'clickCampaign' ">
+    <tr *ngFor="let campaign of campaigns">
+      <td>
+        <i class="fas fa-envelope-open-text fa-3x"></i>
+        Sprout monthly newsletter
+      </td>
+      <td>
+        {{campaign.statistics.emailsRecipients}}
+        <br/> RECIPIENTS
+      </td>
+      <td><button>VIEW</button></td>
+    </tr>
+  </table>
+</div>

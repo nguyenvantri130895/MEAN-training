@@ -1,0 +1,28 @@
+<div class="form-create">
+  <div>
+    <h1>Create New User</h1>
+    <h3>Specify the email address of the new user below. We'll send them an invite to activate their account.</h3>
+  </div>
+  <form [formGroup]="assignRoleForm" (ngSubmit)="submit()">
+    <div>
+      <label>Email *</label>
+      <input class="form-control" disabled formControlName="email" #email>
+    </div>
+
+    <label>Role *</label>
+    <div *ngFor="let role of roles">
+      <label style="font-weight: normal">
+        <input
+          [checked]=isSelected(role.name)
+          (change)="onChange(role.name)"
+          #f type="checkbox"
+          [value]="role.name"
+          name="rolegroup">
+          {{role.name}}
+      </label>
+    </div>
+
+    <input class="btn btn-info pull-right" type="submit" value="Submit" [disabled]="assignRoleForm.invalid">
+
+  </form>
+</div>

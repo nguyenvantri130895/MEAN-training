@@ -1,0 +1,61 @@
+
+main{
+  //background-color:  rgb(29, 28, 31);
+}
+
+main .head-manage-account{
+  height: 200px;
+  background-color: rgb(34, 31, 41);
+}
+
+main .head-manage-account .btn{
+  margin-top: 10px;
+  color: white;
+  font-size: 10px;
+}
+
+.font-color{
+  color: white;
+}
+
+#manage-account{
+  margin: 25px;
+  font-size: 30px;
+}
+
+#manage-account span{
+  position: absolute;
+  right: 20%;
+  border-radius: 50%;
+  width: 40px;
+  background-color: rgb(9, 179, 9);
+  cursor: pointer;
+}
+
+#manage-account span:hover{
+  opacity: 0.7;
+}
+
+input{
+  top: 500px;
+  position: absolute;
+}
+
+.flex-statistic{
+  margin: auto;
+  width: 500px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-statistic > div{
+  width: 140px;
+}
+
+.flex-statistic div .statistic-count{
+  font-size: 16px;
+}
+
+.flex-statistic div .statistic-label{
+  font-size: 10px;
+}

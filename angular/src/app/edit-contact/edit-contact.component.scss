@@ -1,0 +1,56 @@
+
+div div h1{
+  font-size: 40px;
+  font-weight: bold;
+}
+
+div div h3{
+  font-size: 20px;
+  color: rgb(151, 151, 151);
+}
+
+div label{
+  display: block;
+}
+
+form{
+  text-align: left;
+  margin-top: 50px;
+}
+
+.form-create{
+  width: 600px;
+  margin: auto;
+}
+
+.form-control{
+  height: 50px;
+}
+
+label{
+  padding-top: 30px;
+}
+
+h5{
+  display: inline;
+  margin: 10px;
+}
+
+span button{
+  height: 50px;
+  width: 50px;
+}
+
+.button{
+  margin: 20px 20px 0 0;
+  width: 20%;
+  height: 40px;
+}
+
+.btn-default{
+  background-color: rgb(180, 182, 180);
+}
+
+.btn-success{
+  background-color: rgb(34, 192, 34);
+}

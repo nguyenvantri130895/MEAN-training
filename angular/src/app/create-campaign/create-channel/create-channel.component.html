@@ -1,0 +1,317 @@
+<div class="step">
+  <div>
+    <span [ngClass]="step === 'setup' ? 'active' : '' ">Set up</span><i class="fa fa-arrow-right"></i>
+    <span [ngClass]="step === 'content' ? 'active' : '' ">Content</span><i class="fa fa-arrow-right"></i>
+    <span [ngClass]="step === 'recipients' ? 'active' : '' ">Recipients</span><i class="fa fa-arrow-right"></i>
+    <span [ngClass]="step === 'schedule' ? 'active' : '' ">Schedule</span><i class="fa fa-arrow-right"></i>
+    <span [ngClass]="step === 'confirm' ? 'active' : '' ">Confirm</span>
+  </div>
+</div>
+
+
+<div *ngIf="step === 'setup'" class="form-create">
+  <div>
+    <h2>Set Up Your Email Campaign</h2>
+    <h5>We recommend using subject lines with fewer than 50 characters to make sure contacts scanning their inbox read the
+      entire subject line.</h5>
+  </div>
+  <form [formGroup]="createFormSetup" (ngSubmit)="submitSetup(createFormSetup, 'content')">
+    <div>
+      <label>Subject line</label>
+      <h5>This is one of the first things contacts will see, so make it count!</h5>
+      <input class="form-control" formControlName="subject" #subject>
+    </div>
+
+    <div>
+      <label>Who's this message from?</label>
+      <h5>This will help people identify who the message is coming from.</h5>
+      <input class="form-control" placeholder="The from name of the email" formControlName="name" #name>
+    </div>
+
+    <div>
+      <label>From email address</label>
+      <input class="form-control" placeholder="Enter an email address here" formControlName="emailAddress" #emailAddress>
+    </div>
+
+    <div>
+      <label>Where should we send replies? (optional)</label>
+      <h5>Enter an email address where replies will be sent to. If you leave this blank, replies will be sent to the from
+        email address above.</h5>
+      <input class="form-control" placeholder="Optional. An email address for replies to be sent to">
+    </div>
+    <div *ngIf="step === 'setup'" class="footer">
+      <input class="btn btn-primary" type="submit" value="CANCEL" routerLink="../../">
+      <input class="btn btn-primary" type="submit" value="NEXT">
+    </div>
+  </form>
+</div>
+<!--
+<div *ngIf="step === 'setup'" class="footer">
+  <input class="btn btn-primary" type="submit" value="CANCEL" routerLink="../../">
+  <input class="btn btn-primary" type="submit" value="NEXT" (click)="changeStep('content')">
+</div> -->
+
+<div *ngIf="step === 'content'">
+  <div class="row">
+    <div class="column-content" style="background-color:rgb(226, 225, 225);">
+      <div class="container">
+        <div class="column-image-text">
+          <div class="droppable-image">
+          </div>
+        </div>
+        <div class="column-image-text">
+          <div class="droppable-text">
+            <p>
+            </p>
+          </div>
+        </div>
+        <h4>Heading</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. Id donec ultrices tincidunt arcu
+          non. Sit amet luctus venenatis lectus magna. Pellentesque sit amet porttitor eget dolor morbi non arcu. Viverra
+          vitae congue eu consequat. Vulputate ut pharetra sit amet aliquam. Porta lorem mollis aliquam ut porttitor leo
+          a diam. Pulvinar mattis nunc sed blandit libero volutpat sed. Adipiscing diam donec adipiscing tristique risus
+          nec.
+        </p>
+      </div>
+    </div>
+    <div class="column-sidebar">
+      <div class="flex-container">
+        <div class='draggable flex'>
+          <!-- <i class="fa fa-align-justify fa-3x"></i> -->
+          <p>Text</p>
+        </div>
+        <div class='draggable flex'>
+          <!-- <i class="far fa-image fa-3x"></i> -->
+          <p>Image</p>
+        </div>
+        <div class='draggable flex'>
+          <!-- <i class="fa fa-heading fa-3x"></i> -->
+          <p>Heading</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input class="btn btn-primary" type="submit" value="NEXT" (click)="changeStep('recipients')">
+
+  <!-- <ul id="list1" class="lists"></ul>
+  <ul id="list2" class="lists"></ul> -->
+</div>
+<div *ngIf="step === 'recipients'">
+  <div class="recipients">
+    <header>Who are you sending to?
+      <p>You can send to all your contacts or select a segment from your list</p>
+    </header>
+    <div class="search-control">
+      <button class="btn btn-danger" type="button" (click)="onSearch()">
+        <i class="fa fa-search"></i>
+        SEARCH YOUR CONTACTS
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field *ngIf="searchControl===true" class="filter">
+      <input matInput [formControl]="emailFilter" placeholder="Email" disabled>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="searchControl===true" class="filter">
+      <input matInput [formControl]="mobileFilter" placeholder="Mobile">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="searchControl===true" class="filter">
+      <input matInput [formControl]="firstNameFilter" placeholder="First Name">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="searchControl===true" class="filter">
+      <input matInput [formControl]="lastNameFilter" placeholder="Sure Name">
+    </mat-form-field>
+
+
+    <div class="container">
+      Rendered data: {{filteredContacts | json}}
+
+      <mat-table [dataSource]="dataSource">
+
+        <!-- Checkbox Column -->
+        <!-- <ng-container matColumnDef="select">
+  <th mat-header-cell *matHeaderCellDef>
+    <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+    </mat-checkbox>
+  </th>
+  <td mat-cell *matCellDef="let contact">
+    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(contact) : null" [checked]="selection.isSelected(contact)">
+    </mat-checkbox>
+  </td>
+</ng-container> -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll();" />
+          </th>
+          <td mat-cell *matCellDef="let contact">
+            <input type="checkbox" [(ngModel)]="contact.selected" (change)="checkIfAllSelected(contact);">
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstname">
+          <th mat-header-cell *matHeaderCellDef>
+            FIRST NAME
+          </th>
+          <mat-cell *matCellDef="let contact"> {{contact.firstName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="surename">
+          <th mat-header-cell *matHeaderCellDef>
+            SURENAME
+          </th>
+          <mat-cell *matCellDef="let contact"> {{contact.lastName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>
+            EMAIL
+          </th>
+          <td mat-cell *matCellDef="let contact">
+            {{contact.email}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="mobile">
+          <th mat-header-cell *matHeaderCellDef>
+            MOBILE
+          </th>
+          <mat-cell *matCellDef="let contact"> {{contact.mobile}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="step === 'recipients'" (click)="saveRecipients()">Save</p>
+<p *ngIf="step === 'recipients'" (click)="changeStep('schedule')">recipients</p>
+
+
+
+
+
+<div *ngIf="step === 'schedule'" class="schedule">
+  <div class="header">
+    Schedule your email campaign
+    <p>You can send it right now or choose a time in the future</p>
+  </div>
+  <!-- <form [formGroup]='createForm'> -->
+  <div class="container content">
+    <p>Schedule a time</p>
+    <p>When should this campaign be sent?</p>
+    <div class="flex-container">
+      <div class="flex" (click)="onClickNow()" [ngClass]="!clickNow? '' : 'change-color-schedule'">
+        <p class="default-schedule">
+          <i [ngClass]="!clickNow ? 'fas fa-plus-circle' : 'fas fa-check-circle'"></i>
+          <label> NOW</label>
+        </p>
+      </div>
+      <div class="flex" (click)="onClickFuture()" [ngClass]="!clickFuture ? '' : 'change-color-schedule'">
+        <p class="default-schedule">
+          <i [ngClass]="!clickFuture ? 'fas fa-plus-circle' : 'fas fa-check-circle'"></i>
+          <label> IN THE FUTURE</label>
+        </p>
+        <div>
+          <div>
+            <input bsDatepicker class="form-control" value="Select date" ng-required="true" placeholder="MM/DD/YYYY" [(ngModel)]="mydate">
+          </div>
+          <timepicker [(ngModel)]="mytime"></timepicker>
+          <!-- <pre class="alert alert-info">Time is: {{mytime}}</pre> -->
+        </div>
+      </div>
+    </div>
+    <button (click)="setToHappen()">Submit</button>
+  </div>
+  <!-- </form> -->
+</div>
+<p *ngIf="step === 'schedule'" (click)="changeStep('confirm')">schedule</p>
+
+
+
+
+
+<div class="confirm-step" *ngIf="step === 'confirm'">
+  <div class="header">
+    <h2>Confirm Your New Email Campaign</h2>
+  </div>
+  <div class="container content">
+    <div class="column-left">
+      <form [formGroup]="updateFormConfirm">
+        <div>
+          <label>Send Time</label>
+          <p>This is the time you wish to send your campaign</p>
+          <input disabled class="form-control" formControlName="sendTime" #sendTime>
+          <button>EDIT SEND TIME</button>
+        </div>
+
+        <div>
+          <label>From</label>
+          <input class="form-control" disabled formControlName="from" #from>
+        </div>
+
+        <div>
+          <label>Subject</label>
+          <input class="form-control" disabled formControlName="subject" #subject>
+        </div>
+
+        <div>
+          <label>Recipients</label>
+          <input class="form-control" disabled formControlName="recipients" #recipients>
+        </div>
+      </form>
+    </div>
+
+    <!-- <div class="column-right">
+
+    </div> -->
+
+  </div>
+
+</div>
+<!-- </div> -->
+
+
+
+
+
+<!-- <mat-horizontal-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" optional>
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper> -->

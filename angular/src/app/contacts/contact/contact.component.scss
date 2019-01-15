@@ -1,0 +1,53 @@
+.container{
+  position: relative;
+  margin-top: 50px;
+}
+
+.mat-table{
+  background-color: rgb(229, 231, 231);
+}
+
+.mat-cell{
+  font-size: 12px;
+}
+
+.mat-column-email{
+  border-bottom-style: none;
+  flex: 0 0 30%;
+  display: block;
+}
+
+.mat-column-mobile, .mat-column-firstname, .mat-column-surename{
+  padding-left: 20px;
+  flex: 0 0 20%;
+}
+
+.mat-column-email, .mat-column-mobile, .mat-column-firstname, .mat-column-surename, .mat-column-more{
+  border-bottom-style: none;
+}
+
+.mat-header-cell{
+  padding-top: 20px;
+}
+
+.mat-cell{
+  text-align: left;
+  color: rgb(180, 182, 180);
+}
+
+.mat-cell:last-child{
+  font-weight: bold;
+  color: black;
+}
+
+.mat-cell input{
+  border: none;
+  padding: 10px;
+  background: rgb(243, 243, 243);
+  font-weight: bold;
+}
+
+.filter{
+  margin-right: 20px;
+  width: 300px;
+}

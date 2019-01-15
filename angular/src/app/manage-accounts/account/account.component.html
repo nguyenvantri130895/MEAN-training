@@ -1,0 +1,22 @@
+<div class="body-manage-account">
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>ACCOUNT NAME</td>
+          <td>LAST ACCESSED</td>
+          <td>LAST ACTIVITY</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts">
+          <td><input type="checkbox"></td>
+          <td>{{account.name}}<br/><p>Activated on 12/01/2018</p></td>
+          <td>12/18/2018 02:54 PM<br/><p>By Tri Nguyen</p></td>
+          <td>Child Disabled<br/><p>12/18/2018 02:51 PM</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

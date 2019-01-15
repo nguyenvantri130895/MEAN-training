@@ -1,0 +1,42 @@
+.view{
+  text-align: right;
+  padding: 30px;
+  padding-right: 15%;
+  border-bottom: 1px solid rgb(207, 206, 206);
+}
+
+table{
+  text-align: left;
+  width: 100%;
+}
+
+td:last-child{
+  text-align: right;
+}
+
+td {
+  padding: 30px;
+  border-bottom: 1px solid rgb(207, 206, 206);
+}
+
+td i{
+  margin-right: 30px;
+}
+
+.button{
+  outline: none;
+  padding: 10px;
+  font-weight: bold;
+  color: rgb(160, 161, 161);
+}
+
+.active{
+  border-bottom: solid 3px rgb(7, 245, 225);
+  color: black;
+}
+
+td button{
+  border: none;
+  color: rgb(68, 67, 67);
+  padding: 10px;
+}
